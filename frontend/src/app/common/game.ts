@@ -2,6 +2,7 @@ export interface Game {
   _id: string;
   name: string;
   icon: string;
+  banner: string;
   images: string[];
   developers: string[];
   publishers: string[];

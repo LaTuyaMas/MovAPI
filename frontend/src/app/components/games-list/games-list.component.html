@@ -1,1 +1,165 @@
-<p>games-list works!</p>
+<div class="container-fluid">
+
+  <div class="w-100 d-flex mb-2">
+    <h3 class="mt-2 d-inline-block me-auto ms-3">
+      {{games.length}}
+      Games
+    </h3>
+    <h3 class="d-inline-block ms-auto me-3 mt-2 pointer"
+        (click)="newGame()"
+        data-bs-toggle="modal"
+        data-bs-target="#miModal">
+      Add game
+      <i class="fas fa-plus-circle pointer"></i>
+    </h3>
+  </div>
+
+  <div class="container" *ngFor="let g of games">
+    <div class="row border-black">
+
+      <div class="col-md-11">
+        <div (click)="loadGame(g)" data-bs-toggle="modal" data-bs-target="#miModal" class="row mt-3 pt-2">
+          <div class="col-md-2">
+            <img class="border-black" src="{{g.banner || 'assets/images/no_image_icon.png'}}" alt="{{g.name}}">
+          </div>
+
+          <div class="col-md-9">
+            <h5>{{g.name}}</h5>
+            <small id="text-extradanger">{{g.genres}}</small>
+            <small><b>Developers:</b> {{g.developers}} -- <b>Publishers:</b>{{g.publishers}}</small>
+            <p class="plot_box">Release Date: {{g.release_date}}</p>
+            <p class="plot_box">Post Date: {{g.post_date}}</p>
+          </div>
+
+          <div class="col-md-1 align-self-center align-middle">
+            <small class="badge bg-success">{{getScore(g)}}</small>
+          </div>
+
+          <div class="pb-2"></div>
+        </div>
+      </div>
+
+      <div class="col-md-1 remove d-flex">
+        <h3 class="ms-auto align-self-center">
+          <i (click)="removeGame(g)" class="fa-solid fa-trash"></i>
+        </h3>
+      </div>
+    </div>
+
+    <div class="mb-2"></div>
+
+    <!-- Fin del NgFor →
+         Modal -->
+    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h5 class="modal-title" id="miModalLabel">
+              {{edit? 'Edit '+formGame.getRawValue().name : 'New Game'}}
+            </h5>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close">
+            </button>
+          </div>
+
+          <form [formGroup]="formGame" (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input formControlName="name"
+                       type="text" class="form-control"
+                       id="name" value="{{formGame.getRawValue().name}}"
+                       placeholder="Name">
+                <label for="name"> Title </label>
+              </div>
+
+              <div class="row">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input formControlName="icon"
+                             type="text" class="form-control"
+                             id="icon"
+                             value="{{formGame.getRawValue().icon}}"
+                             placeholder="Icon">
+                      <label for="icon"> Icon </label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{formGame.getRawValue().icon || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8 mt-3">
+                  <div class="form-floating mb-3">
+                    <input formControlName="banner"
+                           type="text" class="form-control"
+                           id="banner"
+                           value="{{formGame.getRawValue().banner}}"
+                           placeholder="Icon">
+                    <label for="icon"> Banner </label>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <img src="{{formGame.getRawValue().banner || 'assets/images/no_image_icon.png'}}" alt="...">
+                </div>
+              </div>
+
+              <div class="row" formArrayName="images">
+                <div *ngFor="let image of images.controls; let i = index">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input [formControlName]="i"
+                             type="text" class="form-control"
+                             id="images"
+                             value="{{image.getRawValue()}}"
+                             placeholder="Images">
+                      <label for="images"> Image {{i+1}}</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{image.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn mt-2 btnImage" (click)="addImage()">Add Image</button>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input formControlName="release_date"
+                       type="text" class="form-control"
+                       id="release_date" value="{{formGame.getRawValue().release_date}}"
+                       placeholder="Name">
+                <label for="release_date"> Release Date </label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input formControlName="post_date"
+                       type="text" class="form-control"
+                       id="post_date" value="{{formGame.getRawValue().post_date}}"
+                       placeholder="Name">
+                <label for="post_date"> Post Date </label>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                      data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary"
+                      data-bs-dismiss="modal">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
