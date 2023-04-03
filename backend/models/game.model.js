@@ -6,6 +6,7 @@ const gameSchema = new Schema({
     icon: {type: String, required: true},
     banner: {type: String, required: true},
     images: [{type: String, required: true}],
+    price: {type: Number, required: true},
     developers: [{type: String, required: true}],
     publishers: [{type: String, required: true}],
     genres: [{type: String, required: true}],

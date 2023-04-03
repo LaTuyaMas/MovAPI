@@ -4,6 +4,7 @@ export interface Game {
   icon: string;
   banner: string;
   images: string[];
+  price: number;
   developers: string[];
   publishers: string[];
   genres: string[];

@@ -8,7 +8,7 @@
     <h3 class="d-inline-block ms-auto me-3 mt-2 pointer"
         (click)="newGame()"
         data-bs-toggle="modal"
-        data-bs-target="#miModal">
+        data-bs-target="#gameModal">
       Add game
       <i class="fas fa-plus-circle pointer"></i>
     </h3>
@@ -50,7 +50,7 @@
 
     <!-- Fin del NgFor →
          Modal -->
-    <div class="modal fade" id="miModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+    <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -130,6 +130,106 @@
 
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addImage()">Add Image</button>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input formControlName="price"
+                       type="number" class="form-control"
+                       id="price" value="{{formGame.getRawValue().price}}"
+                       placeholder="Name">
+                <label for="price"> Price </label>
+              </div>
+
+              <div class="row" formArrayName="developers">
+                <div *ngFor="let dev of developers.controls; let i = index">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input [formControlName]="i"
+                             type="text" class="form-control"
+                             id="developers"
+                             value="{{dev.getRawValue()}}"
+                             placeholder="Developer">
+                      <label for="developers"> Developer {{i+1}}</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{dev.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn mt-2 btnImage" (click)="addDeveloper()">Add Developer</button>
+              </div>
+
+              <div class="row" formArrayName="publishers">
+                <div *ngFor="let pub of publishers.controls; let i = index">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input [formControlName]="i"
+                             type="text" class="form-control"
+                             id="publishers"
+                             value="{{pub.getRawValue()}}"
+                             placeholder="Publisher">
+                      <label for="publishers"> Publisher {{i+1}}</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{pub.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn mt-2 btnImage" (click)="addPublisher()">Add Publisher</button>
+              </div>
+
+              <div class="row" formArrayName="genres">
+                <div *ngFor="let gen of genres.controls; let i = index">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input [formControlName]="i"
+                             type="text" class="form-control"
+                             id="genres"
+                             value="{{gen.getRawValue()}}"
+                             placeholder="Genres">
+                      <label for="genres"> Genre {{i+1}}</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{gen.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn mt-2 btnImage" (click)="addGenres()">Add Genre</button>
+              </div>
+
+              <div class="row" formArrayName="consoles">
+                <div *ngFor="let con of consoles.controls; let i = index">
+                  <div class="col-8 mt-3">
+                    <div class="form-floating mb-3">
+                      <input [formControlName]="i"
+                             type="text" class="form-control"
+                             id="consoles"
+                             value="{{con.getRawValue()}}"
+                             placeholder="Console">
+                      <label for="developers"> Console {{i+1}}</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <img src="{{con.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <button type="button" class="btn mt-2 btnImage" (click)="addConsole()">Add Console</button>
               </div>
 
               <div class="form-floating mb-3">

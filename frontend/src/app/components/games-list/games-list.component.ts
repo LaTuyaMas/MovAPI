@@ -18,6 +18,7 @@ export class GamesListComponent implements OnInit {
     icon: [''],
     banner: [''],
     images: this.formBuilder.array([]),
+    price: [0],
     developers: this.formBuilder.array([]),
     publishers: this.formBuilder.array([]),
     genres: this.formBuilder.array([]),
