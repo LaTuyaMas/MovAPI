@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const {mongoose} = require('./database');
 const {json} = require("express");
+// mongoose.set('strictQuery', true);
 
 // Settings
 app.set('port', process.env.PORT || 3678);

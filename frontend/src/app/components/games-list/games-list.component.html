@@ -66,6 +66,7 @@
 
           <form [formGroup]="formGame" (ngSubmit)="onSubmit()">
             <div class="modal-body">
+              <!-- NAME INPUT -->
               <div class="form-floating mb-3">
                 <input formControlName="name"
                        type="text" class="form-control"
@@ -73,7 +74,9 @@
                        placeholder="Name">
                 <label for="name"> Title </label>
               </div>
+              <!-- NAME INPUT -->
 
+              <!-- ICON INPUT -->
               <div class="row">
                 <div class="col-8 mt-3">
                   <div class="form-floating mb-3">
@@ -90,7 +93,9 @@
                   <img src="{{formGame.getRawValue().icon || 'assets/images/no_image_icon.png'}}" alt="...">
                 </div>
               </div>
+              <!-- ICON INPUT -->
 
+              <!-- BANNER INPUT -->
               <div class="row">
                 <div class="col-8 mt-3">
                   <div class="form-floating mb-3">
@@ -98,7 +103,7 @@
                            type="text" class="form-control"
                            id="banner"
                            value="{{formGame.getRawValue().banner}}"
-                           placeholder="Icon">
+                           placeholder="Banner">
                     <label for="icon"> Banner </label>
                   </div>
                 </div>
@@ -107,7 +112,9 @@
                   <img src="{{formGame.getRawValue().banner || 'assets/images/no_image_icon.png'}}" alt="...">
                 </div>
               </div>
+              <!-- BANNER INPUT -->
 
+              <!-- IMAGES INPUT -->
               <div class="row" formArrayName="images">
                 <div *ngFor="let image of images.controls; let i = index">
                   <div class="col-8 mt-3">
@@ -130,7 +137,9 @@
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addImage()">Add Image</button>
               </div>
+              <!-- IMAGES INPUT -->
 
+              <!-- PRICE INPUT -->
               <div class="form-floating mb-3">
                 <input formControlName="price"
                        type="number" class="form-control"
@@ -138,11 +147,12 @@
                        placeholder="Name">
                 <label for="price"> Price </label>
               </div>
+              <!-- PRICE INPUT -->
 
+              <!-- DEVELOPERS INPUT -->
               <div class="row" formArrayName="developers">
                 <div *ngFor="let dev of developers.controls; let i = index">
-                  <div class="col-8 mt-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 mt-3">
                       <input [formControlName]="i"
                              type="text" class="form-control"
                              id="developers"
@@ -150,22 +160,18 @@
                              placeholder="Developer">
                       <label for="developers"> Developer {{i+1}}</label>
                     </div>
-                  </div>
-
-                  <div class="col-4">
-                    <img src="{{dev.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
-                  </div>
                 </div>
               </div>
 
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addDeveloper()">Add Developer</button>
               </div>
+              <!-- DEVELOPERS INPUT -->
 
+              <!-- PUBLISHERS INPUT -->
               <div class="row" formArrayName="publishers">
                 <div *ngFor="let pub of publishers.controls; let i = index">
-                  <div class="col-8 mt-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 mt-3">
                       <input [formControlName]="i"
                              type="text" class="form-control"
                              id="publishers"
@@ -173,22 +179,18 @@
                              placeholder="Publisher">
                       <label for="publishers"> Publisher {{i+1}}</label>
                     </div>
-                  </div>
-
-                  <div class="col-4">
-                    <img src="{{pub.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
-                  </div>
                 </div>
               </div>
 
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addPublisher()">Add Publisher</button>
               </div>
+              <!-- PUBLISHERS INPUT -->
 
+              <!-- GENRES INPUT -->
               <div class="row" formArrayName="genres">
                 <div *ngFor="let gen of genres.controls; let i = index">
-                  <div class="col-8 mt-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 mt-3">
                       <input [formControlName]="i"
                              type="text" class="form-control"
                              id="genres"
@@ -196,22 +198,18 @@
                              placeholder="Genres">
                       <label for="genres"> Genre {{i+1}}</label>
                     </div>
-                  </div>
-
-                  <div class="col-4">
-                    <img src="{{gen.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
-                  </div>
                 </div>
               </div>
 
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addGenres()">Add Genre</button>
               </div>
+              <!-- GENRES INPUT -->
 
+              <!-- CONSOLES INPUT -->
               <div class="row" formArrayName="consoles">
                 <div *ngFor="let con of consoles.controls; let i = index">
-                  <div class="col-8 mt-3">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 mt-3">
                       <input [formControlName]="i"
                              type="text" class="form-control"
                              id="consoles"
@@ -219,33 +217,33 @@
                              placeholder="Console">
                       <label for="developers"> Console {{i+1}}</label>
                     </div>
-                  </div>
-
-                  <div class="col-4">
-                    <img src="{{con.getRawValue() || 'assets/images/no_image_icon.png'}}" alt="...">
-                  </div>
                 </div>
               </div>
 
               <div class="row">
                 <button type="button" class="btn mt-2 btnImage" (click)="addConsole()">Add Console</button>
               </div>
+              <!-- CONSOLES INPUT -->
 
+              <!-- RELEASE DATE INPUT -->
               <div class="form-floating mb-3">
                 <input formControlName="release_date"
                        type="text" class="form-control"
                        id="release_date" value="{{formGame.getRawValue().release_date}}"
-                       placeholder="Name">
+                       placeholder="Release Date">
                 <label for="release_date"> Release Date </label>
               </div>
+              <!-- RELEASE DATE INPUT -->
 
+              <!-- POST DATE INPUT -->
               <div class="form-floating mb-3">
                 <input formControlName="post_date"
                        type="text" class="form-control"
                        id="post_date" value="{{formGame.getRawValue().post_date}}"
-                       placeholder="Name">
+                       placeholder="Post Date">
                 <label for="post_date"> Post Date </label>
               </div>
+              <!-- POST DATE INPUT -->
 
             </div>
 

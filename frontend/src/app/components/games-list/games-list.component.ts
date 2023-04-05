@@ -23,8 +23,16 @@ export class GamesListComponent implements OnInit {
     publishers: this.formBuilder.array([]),
     genres: this.formBuilder.array([]),
     consoles: this.formBuilder.array([]),
-    release_date: [''],
-    post_date: [''],
+    release_date: this.formBuilder.group({
+      day: [0],
+      month: [0],
+      year: [0]
+    }),
+    post_date: this.formBuilder.group({
+      day: [0],
+      month: [0],
+      year: [0]
+    }),
     comments: this.formBuilder.array([])
   });
 

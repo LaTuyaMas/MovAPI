@@ -10,7 +10,11 @@ const userSchema = new Schema({
         game_icon: {type: String, required: false, default: null},
         comment: {type: String, required: false, default: null},
         score: {type: Number, required: false, default: null},
-        date: {type: String, required: false, default: null},
+        date: {
+            day: {type: Number, required: false, default: null},
+            month: {type: Number, required: false, default: null},
+            year: {type: Number, required: false, default: null}
+        },
     }]
 });
 

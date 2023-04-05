@@ -9,13 +9,25 @@ export interface Game {
   publishers: string[];
   genres: string[];
   consoles: string[];
-  release_date: string;
-  post_date: string;
+  release_date: {
+    day: number,
+    month: number,
+    year: number
+  };
+  post_date: {
+    day: number,
+    month: number,
+    year: number
+  };
   comments?: [{
     user_uid: string,
     user_name: string,
     comment: string,
     score: number,
-    date: string
+    date: {
+      day: number,
+      month: number,
+      year: number
+    }
   }]
 }
