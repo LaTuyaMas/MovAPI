@@ -73,7 +73,7 @@
           <form [formGroup]="formGame" (ngSubmit)="onSubmit()">
             <div class="modal-body">
               <!-- NAME INPUT -->
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-5">
                 <input formControlName="name"
                        type="text" class="form-control"
                        id="name" value="{{formGame.getRawValue().name}}"
@@ -83,8 +83,8 @@
               <!-- NAME INPUT -->
 
               <!-- ICON INPUT -->
-              <div class="row">
-                <div class="col-8 mt-3">
+              <div class="row mb-3">
+                <div class="col-8 textForImage">
                   <div class="form-floating mb-3">
                     <input formControlName="icon"
                            type="text" class="form-control"

@@ -149,13 +149,17 @@ export class GamesListComponent implements OnInit {
   }
 
   removeGame(game: Game) {
-    if (confirm('¿Are you sure about deleting '+game.name+'?')) {
-      this.gameService.removeGame(game._id).subscribe(
-        data => {
-          console.log(data);
-          this.listGames();
-        }
-      );
+    if (this.games.length <= 1) {
+      alert('You cannot leave the collection without any games');
+    } else {
+      if (confirm('¿Are you sure about deleting '+game.name+'?')) {
+        this.gameService.removeGame(game._id).subscribe(
+          data => {
+            console.log(data);
+            this.listGames();
+          }
+        );
+      }
     }
   }
 }

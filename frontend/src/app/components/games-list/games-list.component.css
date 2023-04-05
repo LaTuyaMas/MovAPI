@@ -79,3 +79,7 @@ img{
 #labelForIcon{
   margin-top: 3.5em;
 }
+
+.textForImage{
+  vertical-align: middle;
+}
