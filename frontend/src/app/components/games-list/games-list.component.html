@@ -20,15 +20,21 @@
       <div class="col-md-11">
         <div (click)="loadGame(g)" data-bs-toggle="modal" data-bs-target="#gameModal" class="row mt-3 pt-2">
           <div class="col-md-2">
-            <img class="border-black" src="{{g.banner || 'assets/images/no_image_icon.png'}}" alt="{{g.name}}">
+            <img class="border-black" src="{{g.banner || 'assets/images/no_image_icon.png'}}" alt="{{g.name}} banner">
           </div>
 
           <div class="col-md-9">
-            <h5>{{g.name}}</h5>
-            <small id="text-extradanger">{{g.genres}}</small>
-            <small><b>Developers:</b> {{g.developers}} -- <b>Publishers:</b>{{g.publishers}}</small>
-            <p class="plot_box">Release Date: {{g.release_date}}</p>
-            <p class="plot_box">Post Date: {{g.post_date}}</p>
+            <div class="d-inline-block">
+              <span id="icon-text">{{g.name}}</span>
+              <img id="icon-img" src="{{g.icon || 'assets/images/no_image_icon.png'}}" alt="{{g.name}} icon">
+            </div>
+            <div id="text-extradanger">{{g.genres}}</div>
+            <div><b>Developers:</b> {{g.developers}} </div>
+            <div><b>Publishers:</b> {{g.publishers}}</div>
+            <small class="mt-1 mb-1">Release Date: {{g.release_date.day}}-{{g.release_date.month}}-{{g.release_date.year}}
+              \/
+              Post Date: {{g.post_date.day}}-{{g.post_date.month}}-{{g.post_date.year}}
+            </small>
           </div>
 
           <div class="col-md-1 align-self-center align-middle">
