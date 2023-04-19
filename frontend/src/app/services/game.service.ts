@@ -8,7 +8,7 @@ import {Game} from "../common/game";
 })
 export class GameService {
 
-  baseURL = 'http://localhost:3678/api/games';
+  baseURL = 'https://mov-catalog.onrender.com/api/games';
   constructor(private http: HttpClient) { }
 
   getGamesList(): Observable<Game[]> {

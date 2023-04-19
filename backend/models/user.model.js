@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
+    uid: {type: String, required: true},
     alias: {type: String, required: true},
     pfp: {type: String, required: true},
     comments: [{
