@@ -1,5 +1,5 @@
 export interface Game {
-  _id: string;
+  id: string;
   name: string;
   icon: string;
   banner: string;
@@ -22,6 +22,7 @@ export interface Game {
   comments?: [{
     user_uid: string,
     user_name: string,
+    game_id: string,
     comment: string,
     score: number,
     date: {

@@ -13,7 +13,7 @@ export class GamesListComponent implements OnInit {
   games: Game[] = [];
 
   formGame: FormGroup = this.formBuilder.group({
-    _id: [''],
+    id: [''],
     name: [''],
     icon: [''],
     banner: [''],
@@ -153,7 +153,7 @@ export class GamesListComponent implements OnInit {
       alert('You cannot leave the collection without any games');
     } else {
       if (confirm('¿Are you sure about deleting '+game.name+'?')) {
-        this.gameService.removeGame(game._id).subscribe(
+        this.gameService.removeGame(game.id).subscribe(
           data => {
             console.log(data);
             this.listGames();
